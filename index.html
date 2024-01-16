@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h1>Etch A Sketch</h1>
+    </header>
+    <section class="content">
+      <div class="buttons-container">
+        <div class="grid-number__container">
+          <label for="gridNumber">Enter the number of squares per side: </label>
+          <div>
+            <input type="number" min="1" max="100" id="gridNumber" />
+            <button class="change-btn">change</button>
+          </div>
+        </div>
+
+        <button class="eraser-btn">eraser</button>
+        <button class="clear-btn">clear</button>
+        <button class="rainbow-btn">rainbow</button>
+        <button class="color-btn">color</button>
+        <button class="lines-btn">grid lines</button>
+        <button class="shading-btn">shading</button>
+      </div>
+      <div class="grid-container"></div>
+    </section>
+  </body>
+</html>

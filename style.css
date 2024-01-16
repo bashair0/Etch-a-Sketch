@@ -1,0 +1,99 @@
+:root {
+  --green: #3e5641;
+  --grey: #394648;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  color: #b9586d;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(rgba(105, 78, 78, 0.6), rgba(0, 0, 0, 0.1));
+  background-image: url(images/background-image.jpg);
+  background-size: cover;
+
+  padding: 1rem;
+  color: #f0ebe5;
+  font-size: 2rem;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+button {
+  width: 8rem;
+  height: 4rem;
+  background-color: #573e28;
+  border: none;
+  border: 1px solid #573e28;
+  border-radius: 10%;
+  box-shadow: inset 1px 1px 5px #1f1f1f;
+  cursor: pointer;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: #4f3824;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 20rem;
+}
+
+input[type="number"] {
+  width: 12rem;
+  padding: 1rem;
+  margin-block: 1rem;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+}
+
+.grid-container {
+  width: 45rem;
+  height: 45rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin-block: 2rem;
+  border: 2rem solid #ded9d2;
+}
+
+.grid-item {
+  /* width: calc(100% / 40);
+  height: calc(100% / 40); */
+  background-color: #f0ebe5;
+}
+
+.grid-item__border {
+  border: 1px solid #ded9d2;
+}
+
+.grid-number__container label {
+  font-size: 1.5rem;
+}
+
+.change-btn {
+  width: 5rem;
+  height: 3rem;
+}
