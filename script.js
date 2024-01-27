@@ -1,4 +1,30 @@
+/* get custom property color values */
+const rootStyles = getComputedStyle(document.documentElement)
+const colorPink = rootStyles.getPropertyValue('--clr-pink')
+const colorWhite = rootStyles.getPropertyValue('--clr-white')
+
+let color = colorWhite
 let gridNumber = 16
+
+document.addEventListener('DOMContentLoaded', () => {
+  generateGrid()
+})
+
+const eraserBtn = document.querySelector('.eraser-btn')
+eraserBtn.addEventListener('click', () => {
+  color = 'white'
+})
+
+const colorBtn = document.querySelector('.color-btn')
+colorBtn.addEventListener('click', () => {
+  color = 'pink'
+})
+
+const rainbowBtn = document.querySelector('.rainbow-btn')
+rainbowBtn.addEventListener('click', () => {
+  color = 'random'
+})
+
 function generateGrid () {
   const gridContainer = document.querySelector('.grid-container')
   gridContainer.innerHTML = ''
@@ -8,55 +34,21 @@ function generateGrid () {
     gridItem.classList.add('grid-item__border')
     gridItem.style.height = `calc(${100}%  / ${gridNumber})`
     gridItem.style.width = `calc(${100}%  / ${gridNumber})`
+    gridContainer.appendChild(gridItem)
 
-    gridItem.addEventListener('mouseover', () => {
-      // Change background color on hover
-      gridItem.style.backgroundColor = '#D47B91'
-    })
-
-    const eraserBtn = document.querySelector('.eraser-btn')
-    eraserBtn.addEventListener('click', () => {
-      gridItem.addEventListener('mouseover', function () {
-        // Change background color on hover
-        gridItem.style.backgroundColor = '#f0ebe5'
-      })
-    })
-
-    const colorBtn = document.querySelector('.color-btn')
-    colorBtn.addEventListener('click', () => {
-      gridItem.addEventListener('mouseover', function () {
-        // Change background color on hover
-        gridItem.style.backgroundColor = '#D47B91'
-      })
-    })
-
-    const GridLinesButton = document.querySelector('.lines-btn')
-    GridLinesButton.addEventListener('click', () => {
-      gridItem.classList.toggle('grid-item__border')
-    })
-
-    const rainbowBtn = document.querySelector('.rainbow-btn')
-    rainbowBtn.addEventListener('click', () => {
-      gridItem.addEventListener('mouseover', function () {
-        // Change background color on hover
-        gridItem.style.backgroundColor = getRandomColor()
-      })
-    })
+    gridItem.addEventListener('mouseover', colorDiv)
 
     const clearBtn = document.querySelector('.clear-btn')
     clearBtn.addEventListener('click', () => {
-      gridItem.style.backgroundColor = '#f0ebe5'
+      gridItem.style.backgroundColor = colorWhite
     })
 
-    const shadingBtn = document.querySelector('.shading-btn')
-    shadingBtn.addEventListener('click', () => {
-      gridItem.addEventListener('mouseover', function () {})
+    const GridLinesBtn = document.querySelector('.lines-btn')
+    GridLinesBtn.addEventListener('click', () => {
+      gridItem.classList.toggle('grid-item__border')
     })
-
-    gridContainer.appendChild(gridItem)
   }
 }
-generateGrid()
 
 function getRandomColor () {
   const red = Math.floor(Math.random() * 256)
@@ -64,12 +56,23 @@ function getRandomColor () {
   const blue = Math.floor(Math.random() * 256)
   return `rgb(${red}, ${green}, ${blue})`
 }
+
+function colorDiv () {
+  if (color === 'random') {
+    this.style.backgroundColor = getRandomColor()
+  } else if (color === 'white') {
+    this.style.backgroundColor = colorWhite
+  } else {
+    this.style.backgroundColor = colorPink
+  }
+}
+
 const changeBtn = document.querySelector('.change-btn')
 changeBtn.addEventListener('click', () => {
   const gridNumberInput = document.querySelector('#gridNumber')
   newGridSize = parseInt(gridNumberInput.value)
   if (!isNaN(newGridSize) && newGridSize > 0 && newGridSize <= 100) {
-    size = newGridSize
+    gridNumber = newGridSize
     generateGrid()
   } else {
     alert('Please enter a valid number between 1 and 100.')

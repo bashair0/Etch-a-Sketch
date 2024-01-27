@@ -1,6 +1,11 @@
 :root {
-  --green: #3e5641;
-  --grey: #394648;
+  --clr-white: #f0ebe5;
+  --clr-light-grey: #ded9d2;
+  --clr-black: #1f1f1f;
+  --clr-pink: #d47b91;
+  --clr-dark-pink: #b9586d;
+  --clr-brown: #573e28;
+  --clr-dark-brown: #4f3824;
 }
 
 *,
@@ -16,53 +21,50 @@
 
 header {
   text-align: center;
-  color: #b9586d;
+  color: var(--clr-dark-pink);
 }
 
 body {
   min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(rgba(105, 78, 78, 0.6), rgba(0, 0, 0, 0.1));
   background-image: url(images/background-image.jpg);
   background-size: cover;
 
   padding: 1rem;
-  color: #f0ebe5;
+  color: var(--clr-white);
   font-size: 2rem;
 }
 
-.content {
+button {
+  border: none;
+  cursor: pointer;
+  width: 8rem;
+  height: 4rem;
+  background-color: var(--clr-brown);
+  border-radius: 10%;
+  box-shadow: inset 1px 1px 5px var(--clr-black);
+}
+
+.flex {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.content {
   gap: 3rem;
 }
 
-button {
-  width: 8rem;
-  height: 4rem;
-  background-color: #573e28;
-  border: none;
-  border: 1px solid #573e28;
-  border-radius: 10%;
-  box-shadow: inset 1px 1px 5px #1f1f1f;
-  cursor: pointer;
-}
-
 .buttons-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  background-color: #4f3824;
-  border-radius: 10px;
   padding: 1rem;
   width: 20rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: var(--clr-dark-brown);
+  border-radius: 10px;
 }
 
 input[type="number"] {
-  border: 1px solid red;
   width: 12rem;
   padding: 1rem;
   margin-block: 1rem;
@@ -77,17 +79,15 @@ input[type="number"] {
   display: flex;
   flex-wrap: wrap;
   margin-block: 2rem;
-  border: 2rem solid #ded9d2;
+  border: 2rem solid var(--clr-light-grey);
 }
 
 .grid-item {
-  /* width: calc(100% / 40);
-  height: calc(100% / 40); */
-  background-color: #f0ebe5;
+  background-color: var(--clr-white);
 }
 
 .grid-item__border {
-  border: 1px solid #ded9d2;
+  border: 1px solid var(--clr-light-grey);
 }
 
 .grid-number__container label {
